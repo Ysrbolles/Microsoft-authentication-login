@@ -1,5 +1,5 @@
 const config = {
-	appId: 'edcc0a1f-240a-4e70-a608-49cebf08ed52',
+	appId: 'YOUR_APPLICATION_KEY',
 	redirectUrl: 'http://localhost:3000',
 	scopes: [
 		'user.read',

@@ -47,8 +47,8 @@ function App() {
 		<div className="App" >
 			<header className="App-header">
 				<img src={logo} alt="logo" />
-				{isAuthenticated ? <p>Logged in</p> :
-					<button onClick={() => login()}>login </button>}
+				{isAuthenticated ? <p>Welcome {user?.name}</p> :
+					<button style={{ padding: "10px", width: "100px" }} onClick={() => login()}>login </button>}
 			</header>
 		</div >
 	);
