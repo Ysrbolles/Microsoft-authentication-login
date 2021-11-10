@@ -5,7 +5,7 @@ const config = {
 		'user.read',
 		'calendars.read',
 	],
-	authority: 'https://login.microsoftonline.com/outlook.com',
+	authority: 'https://login.microsoftonline.com/common/',
 }
 
 export default config
