@@ -31,6 +31,7 @@ function App() {
 		publicClientApplication.loginPopup({
 			scopes: config.scopes, prompt: 'select_account'
 		}).then(async (response) => {
+			console.log(response);
 			if (response.accessToken) {
 				setToken(response.accessToken);
 				setIsAuthenticated(true);
