@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 import config from "./Configs"
 import { PublicClientApplication } from '@azure/msal-browser';
@@ -11,11 +11,7 @@ function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [publicClientApplication, setPublicClientApplication] = useState(null);
 
-
-
 	useEffect(() => {
-
-
 		let publicClientApplication = new PublicClientApplication({
 			auth: {
 				clientId: config.appId,
@@ -32,13 +28,13 @@ function App() {
 
 
 	const login = async () => {
-		console.log(publicClientApplication);
 		publicClientApplication.loginPopup({
 			scopes: config.scopes, prompt: 'select_account'
 		}).then(async (response) => {
 			if (response.accessToken) {
 				setToken(response.accessToken);
 				setIsAuthenticated(true);
+				setUser(response.account);
 			}
 			else {
 				setError(response.error);
@@ -50,9 +46,9 @@ function App() {
 	return (
 		<div className="App" >
 			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				{isAuthenticated && <p>Logged in</p>}
-				<button onClick={() => login()}>login </button>
+				<img src={logo} alt="logo" />
+				{isAuthenticated ? <p>Logged in</p> :
+					<button onClick={() => login()}>login </button>}
 			</header>
 		</div >
 	);
